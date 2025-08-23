@@ -6,7 +6,8 @@
   "packageManager": "pnpm@10.15.0",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "biome ci"
   },
   "devDependencies": {
     "@raviqqe/biome-config": "^2.0.16",
