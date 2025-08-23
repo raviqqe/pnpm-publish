@@ -12,7 +12,7 @@ inputs:
     description: A directory where a `pnpm-workspace.yaml` file exists
     required: false
     default: .
-  dry_run:
+  npm_token:
     description: NPM token
     required: false
 outputs: {}
