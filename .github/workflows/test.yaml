@@ -10,7 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.
-        working-directory: test
+        with:
+          directory: test
   spell_check:
     runs-on: ubuntu-latest
     steps:

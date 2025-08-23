@@ -9,7 +9,9 @@
     "build": "tsc"
   },
   "devDependencies": {
+    "@raviqqe/biome-config": "^2.0.16",
     "@raviqqe/tsconfig": "^2.0.1",
+    "biome": "^0.3.3",
     "typescript": "^5.9.2"
   }
 }
