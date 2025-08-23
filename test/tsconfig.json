@@ -1,0 +1,7 @@
+{
+  "extends": ["@raviqqe/tsconfig"],
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src"
+  }
+}

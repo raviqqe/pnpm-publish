@@ -8,17 +8,29 @@ inputs:
     description: A build script
     required: false
     default: build
+  directory:
+    description: A directory where a `pnpm-workspace.yaml` file exists
+    required: false
+    default: .
   npm_token:
     description: NPM token
     required: true
+  workspace:
+    description: Enable workspace
+    required: false
 outputs: {}
 runs:
   using: composite
   steps:
-    - run: node --run ${{ inputs.build_script }}
+    - run: pnpm ${{ inputs.build_script }}
+      shell: bash
+      working-directory: ${{ inputs.directory }}
     - run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+      shell: bash
       env:
         NPM_TOKEN: ${{ inputs.npm_token }}
     - run: >
-        pnpm -r publish --access public
+        pnpm ${{ inputs.workspace == 'true' && '-r' || '' }} publish --access public
         ${{ github.ref != 'refs/heads/main' && '--dry-run --no-git-checks' || '' }}
+      shell: bash
+      working-directory: ${{ inputs.directory }}
