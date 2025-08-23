@@ -29,7 +29,7 @@ runs:
       env:
         NPM_TOKEN: ${{ inputs.npm_token }}
     - run: >
-        pnpm -r publish --access public
+        pnpm ${{ inputs.workspace == 'true' && '-r' || '' }} publish --access public
         ${{ github.ref != 'refs/heads/main' && '--dry-run --no-git-checks' || '' }}
       shell: bash
       working-directory: ${{ inputs.directory }}
