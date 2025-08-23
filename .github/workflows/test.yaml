@@ -20,6 +20,10 @@ jobs:
       - uses: ./.
         with:
           directory: test
+      - uses: ./.
+        with:
+          directory: test
+          workspace: true
   spell_check:
     runs-on: ubuntu-latest
     steps:
