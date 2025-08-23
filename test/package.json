@@ -1,0 +1,15 @@
+{
+  "name": "example",
+  "description": "",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.15.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@raviqqe/tsconfig": "^2.0.1",
+    "typescript": "^5.9.2"
+  }
+}
