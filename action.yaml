@@ -21,15 +21,15 @@ inputs:
 outputs: {}
 runs:
   using: composite
-  default:
-    run:
-      shell: bash
   steps:
     - run: node --run ${{ inputs.build_script }}
+      shell: bash
     - run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+      shell: bash
       env:
         NPM_TOKEN: ${{ inputs.npm_token }}
     - run: >
         pnpm -r publish --access public
         ${{ github.ref != 'refs/heads/main' && '--dry-run --no-git-checks' || '' }}
+      shell: bash
       working-directory: ${{ inputs.directory }}
