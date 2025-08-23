@@ -1,0 +1,24 @@
+name: raviqqe/pnpm-publish
+description: pnpm publish as a GitHub Action
+branding:
+  icon: book
+  color: orange
+inputs:
+  build_script:
+    description: A build script
+    required: false
+    default: build
+  npm_token:
+    description: NPM token
+    required: true
+outputs: {}
+runs:
+  using: composite
+  steps:
+    - run: node --run ${{ inputs.build_script }}
+    - run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+      env:
+        NPM_TOKEN: ${{ inputs.npm_token }}
+    - run: >
+        pnpm -r publish --access public
+        ${{ github.ref != 'refs/heads/main' && '--dry-run --no-git-checks' || '' }}
