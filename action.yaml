@@ -21,6 +21,9 @@ inputs:
 outputs: {}
 runs:
   using: composite
+  defaults:
+    run:
+      shell: bash
   steps:
     - run: node --run ${{ inputs.build_script }}
     - run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
