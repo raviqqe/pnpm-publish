@@ -22,7 +22,7 @@ outputs: {}
 runs:
   using: composite
   steps:
-    - run: node --run ${{ inputs.build_script }}
+    - run: pnpm ${{ inputs.build_script }}
       shell: bash
     - run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
       shell: bash
