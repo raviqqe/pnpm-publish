@@ -8,9 +8,16 @@ inputs:
     description: A build script
     required: false
     default: build
+  directory:
+    description: A directory where a `pnpm-workspace.yaml` file exists
+    required: false
+    default: .
   npm_token:
     description: NPM token
     required: true
+  workspace:
+    description: Enable workspace
+    required: false
 outputs: {}
 runs:
   using: composite
@@ -22,3 +29,4 @@ runs:
     - run: >
         pnpm -r publish --access public
         ${{ github.ref != 'refs/heads/main' && '--dry-run --no-git-checks' || '' }}
+      working-directory: ${{ inputs.directory }}
