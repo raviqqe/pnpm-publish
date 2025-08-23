@@ -21,7 +21,7 @@ inputs:
 outputs: {}
 runs:
   using: composite
-  defaults:
+  default:
     run:
       shell: bash
   steps:
