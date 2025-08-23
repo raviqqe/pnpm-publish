@@ -12,9 +12,9 @@ inputs:
     description: A directory where a `pnpm-workspace.yaml` file exists
     required: false
     default: .
-  npm_token:
+  dry_run:
     description: NPM token
-    required: true
+    required: false
 outputs: {}
 runs:
   using: composite
@@ -28,6 +28,6 @@ runs:
         NPM_TOKEN: ${{ inputs.npm_token }}
     - run: >
         pnpm -r publish --access public
-        ${{ github.ref != 'refs/heads/main' && '--dry-run --no-git-checks' || '' }}
+        ${{ inputs.npm_token && '--dry-run --no-git-checks' || '' }}
       shell: bash
       working-directory: ${{ inputs.directory }}
