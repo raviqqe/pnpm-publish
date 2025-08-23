@@ -8,7 +8,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
         with:
           package_json_file: test/package.json
@@ -18,7 +18,7 @@ jobs:
   spell_check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: streetsidesoftware/cspell-action@v6
+      - uses: actions/checkout@v5
+      - uses: streetsidesoftware/cspell-action@v7
         with:
           files: "**/*.md"
