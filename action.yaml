@@ -12,8 +12,8 @@ inputs:
     description: A directory where a `pnpm-workspace.yaml` file exists
     required: false
     default: .
-  npm_token:
-    description: NPM token
+  release:
+    description: A flag to release packages
     required: false
 outputs: {}
 runs:
@@ -25,12 +25,8 @@ runs:
     - run: pnpm -r ${{ inputs.build_script }}
       shell: bash
       working-directory: ${{ inputs.directory }}
-    - run: pnpm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
-      shell: bash
-      env:
-        NPM_TOKEN: ${{ inputs.npm_token }}
     - run: >
         pnpm -r publish --access public
-        ${{ !inputs.npm_token && '--dry-run --no-git-checks' || '' }}
+        ${{ !inputs.release && '--dry-run --no-git-checks' || '' }}
       shell: bash
       working-directory: ${{ inputs.directory }}
