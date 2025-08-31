@@ -27,6 +27,6 @@ runs:
       working-directory: ${{ inputs.directory }}
     - run: >
         pnpm -r publish --access public
-        ${{ !inputs.release && '--dry-run --no-git-checks' || '' }}
+        ${{ inputs.release != 'true' && '--dry-run --no-git-checks' || '' }}
       shell: bash
       working-directory: ${{ inputs.directory }}
