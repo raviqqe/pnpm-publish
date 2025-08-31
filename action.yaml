@@ -25,6 +25,7 @@ runs:
     - run: pnpm -r ${{ inputs.build_script }}
       shell: bash
       working-directory: ${{ inputs.directory }}
+      if: inputs.build_script
     - run: >
         pnpm -r publish --access public
         ${{ inputs.release != 'true' && '--dry-run --no-git-checks' || '' }}
