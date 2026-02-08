@@ -22,7 +22,7 @@ runs:
     - run: pnpm i --frozen-lockfile
       shell: bash
       working-directory: ${{ inputs.directory }}
-    - run: pnpm -r ${{ inputs.build_script }}
+    - run: pnpm -r --if-present ${{ inputs.build_script }}
       shell: bash
       working-directory: ${{ inputs.directory }}
       if: inputs.build_script
