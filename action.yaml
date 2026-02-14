@@ -28,6 +28,6 @@ runs:
       if: inputs.build_script
     - run: >
         pnpm -r publish --access public
-        ${{ inputs.release != 'true' && '--dry-run --publish-branch $(git branch --show-current)' || '' }}
+        ${{ inputs.release != 'true' && '--dry-run --no-git-checks' || '' }}
       shell: bash
       working-directory: ${{ inputs.directory }}
