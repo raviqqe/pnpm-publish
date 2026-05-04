@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@raviqqe/biome-config": "^2.0.26",
-    "@raviqqe/tsconfig": "^3.0.0",
+    "@raviqqe/tsconfig": "^3.0.1",
     "biome": "^0.3.3",
     "typescript": "^6.0.3"
   }
