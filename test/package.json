@@ -13,6 +13,6 @@
     "@raviqqe/biome-config": "^2.0.27",
     "@raviqqe/tsconfig": "^3.0.1",
     "biome": "^0.3.3",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   }
 }
