@@ -10,7 +10,7 @@
     "lint": "biome ci"
   },
   "devDependencies": {
-    "@raviqqe/biome-config": "^2.0.28",
+    "@raviqqe/biome-config": "^2.0.29",
     "@raviqqe/tsconfig": "^3.0.4",
     "biome": "^0.3.3",
     "typescript": "^7.0.2"
