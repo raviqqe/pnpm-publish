@@ -31,7 +31,7 @@ runs:
         ${{ inputs.release != 'true' && '--dry-run --no-git-checks' || '' }}
       shell: bash
       working-directory: ${{ inputs.directory }}
-    - run: '"$GITHUB_ACTION_PATH/tools/wait.sh"'
+    - run: "$GITHUB_ACTION_PATH"/tools/wait.sh
       shell: bash
       working-directory: ${{ inputs.directory }}
       if: inputs.release == 'true'
