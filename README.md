@@ -5,6 +5,16 @@
 
 A GitHub Action to run `pnpm publish`.
 
+## Concurrency
+
+After publishing packages, the action waits until the registry serves their new versions so that the next workflow run does not publish the same versions again. To make the next run start after that, queue workflow runs with the `concurrency` field.
+
+```yaml
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  queue: max
+```
+
 ## License
 
 [The Unlicense](UNLICENSE)
