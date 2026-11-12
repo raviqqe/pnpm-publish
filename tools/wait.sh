@@ -16,6 +16,6 @@ jq -r '.publishedPackages[] | "\(.name) \(.version)"' pnpm-publish-summary.json 
         exit 1
       fi
 
-      sleep 10
+      sleep 1
     done
   done
